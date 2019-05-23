@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Show/Hide</title>
+    <title>Toggle Visibility</title>
     <style type="text/css">
       body {
         margin-left: auto;
@@ -12,7 +12,7 @@
     </style>
   </head>
   <body>
-    <h1>Show / Hide</h1>
+    <h1>Toggle Visibility</h1>
     <div>
       <h2>The first one</h2>
       <div>
@@ -48,7 +48,7 @@
       if (event.target.nodeName !== "BUTTON") return;
 
       toggleContentVisibility(event.target);
-      
+
     });
 
     function toggleContentVisibility(button) {
@@ -77,7 +77,5 @@
         sibling = sibling.nextElementSibling;
       }
     }
-
   </script>
-
 </html>
