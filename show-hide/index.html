@@ -16,21 +16,24 @@
     <div>
       <h2>The first one</h2>
       <div>
-        <button>[-]</button>
+        <button>[ - ]</button>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
       <h2>The second one</h2>
       <div>
-        <button>[-]</button>
+        <button>[ - ]</button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
       <h2>The third one</h2>
       <div>
-        <button>[-]</button>
+        <button>[ - ]</button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
@@ -40,25 +43,24 @@
 
   <script>
 
-    const buttonList = document.getElementsByTagName("BUTTON");
+    var e;
+    document.addEventListener('click', function(event) {
 
-    window.addEventListener("load", function() {
-      for (let i = 0; i < buttonList.length; i++) {
-        buttonList[i].addEventListener('click', function(event) {
-          const button = event.toElement;
-          const content = button.nextElementSibling;
+      if (event.target.nodeName !== "BUTTON") return;
 
-          if (content.style.display === "none") {
-            content.style.display = "block";
-            button.innerHTML = "[-]"
-          } else {
-            content.style.display = "none";
-            button.innerHTML = "[+]"
-          }
-        });
+      
+
+      if (event.target.nextElementSibling.style.display === "none") {
+        event.target.nextElementSibling.style.display = "block";
+        event.target.innerHTML = "[ - ]";
+      } else {
+        event.target.nextElementSibling.style.display = "none";
+        const pCount = event.target.parentElement.childElementCount - 1;
+        event.target.innerHTML = "[ +" + pCount + " ]";
       }
-    })
-    
+      
+    });
+
   </script>
 
 </html>
