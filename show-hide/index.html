@@ -43,23 +43,40 @@
 
   <script>
 
-    var e;
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
 
       if (event.target.nodeName !== "BUTTON") return;
 
-      
-
-      if (event.target.nextElementSibling.style.display === "none") {
-        event.target.nextElementSibling.style.display = "block";
-        event.target.innerHTML = "[ - ]";
-      } else {
-        event.target.nextElementSibling.style.display = "none";
-        const pCount = event.target.parentElement.childElementCount - 1;
-        event.target.innerHTML = "[ +" + pCount + " ]";
-      }
+      toggleContentVisibility(event.target);
       
     });
+
+    function toggleContentVisibility(button) {
+      let sibling = button.nextElementSibling;
+      
+      if (button.nextElementSibling.style.display === "none") {
+        showContent(sibling);
+        button.innerHTML = "[ - ]";
+      } else {
+        hideContent(sibling);
+        const pCount = button.parentElement.childElementCount - 1;
+        button.innerHTML = "[ +" + pCount + " ]";
+      }
+    }
+
+    function hideContent(sibling) {
+      while (sibling) {
+        sibling.style.display = "none";
+        sibling = sibling.nextElementSibling;
+      }
+    }
+
+    function showContent(sibling) {
+      while (sibling) {
+        sibling.style.display = "block";
+        sibling = sibling.nextElementSibling;
+      }
+    }
 
   </script>
 
