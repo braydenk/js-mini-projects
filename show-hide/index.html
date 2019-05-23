@@ -44,8 +44,11 @@
       const button = event.toElement;
       const content = button.nextElementSibling;
       
-      
-      content.style.display = "none";
+      if (content.style.display === "none") {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
     }
     
   </script>
