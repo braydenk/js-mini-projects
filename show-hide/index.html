@@ -16,21 +16,21 @@
     <div>
       <h2>The first one</h2>
       <div>
-        <button onClick="toggleVisibility(event)">[-]</button>
+        <button>[-]</button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
       <h2>The second one</h2>
       <div>
-        <button onClick="toggleVisibility(event)">[-]</button>
+        <button>[-]</button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
       <h2>The third one</h2>
       <div>
-        <button onClick="toggleVisibility(event)">[-]</button>
+        <button>[-]</button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
@@ -40,18 +40,24 @@
 
   <script>
 
-    function toggleVisibility(event) {
-      const button = event.toElement;
-      const content = button.nextElementSibling;
-      
-      if (content.style.display === "none") {
-        content.style.display = "block";
-        button.innerHTML = "[-]"
-      } else {
-        content.style.display = "none";
-        button.innerHTML = "[+]"
+    const buttonList = document.getElementsByTagName("BUTTON");
+
+    window.addEventListener("load", function() {
+      for (let i = 0; i < buttonList.length; i++) {
+        buttonList[i].addEventListener('click', function(event) {
+          const button = event.toElement;
+          const content = button.nextElementSibling;
+
+          if (content.style.display === "none") {
+            content.style.display = "block";
+            button.innerHTML = "[-]"
+          } else {
+            content.style.display = "none";
+            button.innerHTML = "[+]"
+          }
+        });
       }
-    }
+    })
     
   </script>
 
